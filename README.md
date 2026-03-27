@@ -3,9 +3,9 @@
 ---
  
 <div align="center"> 
-<img src="https://img.shields.io/badge/HTML-5-orange?style=for-the-badge&logo=html5" alt="HTML Badge" /> 
-<img src="https://img.shields.io/badge/CSS-3-purple?style=for-the-badge&logo=css&logoColor=purple" alt="CSS Badge" /> 
-<img src="https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript&logoColor=yellow%22 alt="JavaScript Badge" /> 
+<img width="48" height="48" src="https://img.icons8.com/color/48/html-5--v1.png" alt="html-5--v1"/>
+<img width="48" height="48" src="https://img.icons8.com/color/48/css3.png" alt="css3"/>
+<img width="48" height="48" src="https://img.icons8.com/color/48/javascript--v1.png" alt="javascript--v1"/>
 </div>
  
 <br />
@@ -80,13 +80,13 @@ Para executar o projeto em ambiente local, siga os passos abaixo.
 1. Clone o repositório:
  
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/SabrinaNovaes/portifolio.git
    ```
  
 2. Acesse a pasta do projeto:
  
    ```bash
-   cd seu-repositorio
+   cd portifolio
    ```
  
 3. Abra o projeto no Visual Studio Code:
@@ -105,7 +105,7 @@ O site será aberto no navegador e todas as alterações poderão ser visualizad
  
 Este site está disponível publicamente através do **GitHub Pages**. Você pode acessar a versão online pelo link abaixo:
  
-🔗 https://seu-usuario.github.io/seu-repositorio
+🔗 https://SabrinaNovaes.github.io/portifolio
  
 ------
  
