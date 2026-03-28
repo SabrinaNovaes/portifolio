@@ -8,7 +8,7 @@ const swiperWrapper = document.querySelector(".swiper-wrapper");
 const formulario = document.querySelector("#formulario");
 
 // Expressão Regular de validação do e-mail
-const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
 // Função de Preenchimento da seção about
 async function getAboutHitHub() {
@@ -82,58 +82,97 @@ async function getProjectsGitHub() {
 
         swiperWrapper.innerHTML += "";
 
-        // Cores e ícones das linguagens
+        // ícones das linguagens
         const linguagens = {
-            JavaScript: { icone: "javascript" },
-            TypeScript: { icone: "typescript" },
-            Python: { icone: "python" },
-            Java: { icone: "java" },
-            HTML: { icone: "html" },
-            CSS: { icone: "css" },
-            "C#": { icone: "csharp" },
-            GitHub: { icone: "github" },
-        };
+            'JavaScript': 'javascript',
+            'TypeScript': 'typescript',
+            'Python': 'python',
+            'Java': 'java',
+            'HTML': 'html',
+            'CSS': 'css',
+            'PHP': 'php',
+            'C#': 'csharp',
+            'Go': 'go',
+            'Kotlin': 'kotlin',
+            'Swift': 'swift',
+            'C': 'c',
+            'C++': 'c_plus',
+            'GitHub': 'github',
+        }
 
         repositorios.forEach(repositorio => {
             // Identificar a Linguagem padrão do Repositorio
             const linguagem = repositorio.language || "GitHub";
 
             // Seleciona o icone da Linguagem Padrão
-            const config = linguagens[linguagem] || linguagens["GitHub"];
+            const icone = linguagens[linguagem] ?? linguagens["GitHub"];
 
             // Monta a url que aponta para o ícone da Linguagem padrão
-            const urlIcone = `./assets/icons/languages/${config.icone}.svg`;
+            const urlIcone = `./assets/icons/languages/${icone}.svg`;
 
             // Formatar o nome do Repositorio
             const nomeFormatado = repositorio.name
-                .replace(/[-_]/g, " ") // Ubstitui hifens e underlines por espaços em branco
+                .replace(/[-_]/g, " ") // Substitui hifens e underlines por espaços em branco
                 .replace(/[^a-zA-Z0-9\s]/g, "") // Remove Caracteres especiais
                 .toUpperCase(); // Converte a String em letrar maiusculas
 
             // Descrição do repositorio
-            const descricao = repositorio.description
-                ? repositorio.description.length > 100
-                    ? repositorio.description.substring(0, 97) + "..."
-                    : repositorio.description
-                : "Projeto desenvolvido no Github";
+            // const descricao = repositorio.description
+            //     ? repositorio.description.length > 100
+            //         ? repositorio.description.substring(0, 97) + "..."
+            //         : repositorio.description
+            //     : "Projeto desenvolvido no Github";
 
-            // Tags do Repositorio
-            const tags =
-                repositorio.topics?.length > 0
-                    ? repositorio.topics
-                        .slice(0, 3)
-                        .map((topic) => `<span class="tag">${topic}</span>`)
-                        .join(" ")
-                    : `<span class="tag">${linguagem}</span>`;
+            // // Tags do Repositorio
+            // const tags =
+            //     repositorio.topics?.length > 0
+            //         ? repositorio.topics
+            //             .slice(0, 3)
+            //             .map((topic) => `<span class="tag">${topic}</span>`)
+            //             .join(" ")
+            //         : `<span class="tag">${linguagem}</span>`;
+
+            // // Botões de ação
+            // const botoesAcao = `
+            //         <div class="project-buttons">
+            //             <a href="${repositorio.html_url}" target="_blank" class="botao botao-sm">Github</a>
+
+            //             ${repositorio.homepage ? `<a href="${repositorio.homepage}" target="_blank" class="botao-outline botao-sm">Deploy</a>`
+            //             : ""}
+            //         </div>`
+
+
+            // Função para truncar texto
+            // Se a descrição possuir mais de 100 carcateres
+            // seleciona os primeiros 97 e acrescenta '...' no final
+            // Senão retorna o mesmo texto
+            const truncar = (texto, limite) => texto.length > limite
+                ? texto.substring(0, limite) + '...'
+                : texto
+
+            // Define a descrição do Repositório
+            const descricao = repositorio.description
+                ? truncar(repositorio.description, 100)
+                : 'Projeto desenvolvido no GitHub'
+
+            // tags
+            const tags = repositorio.topics?.length > 0
+                ? repositorio.topics.slice(0, 3).map(topic => `<span class="tag">${topic}</span>`).join('')
+                : `<span class="tag">${linguagem}</span>`;
+
+            // Cria o Botão Deploy
+            const botaoDeploy = repositorio.homepage
+                ? `<a href="${repositorio.homepage}" target="_blank" class="botao-outline botao-sm">Deploy</a>`
+                : ''
 
             // Botões de ação
             const botoesAcao = `
-                    <div class="project-buttons">
-                        <a href="${repositorio.html_url}" target="_blank" class="botao botao-sm">Github</a>
-                        
-                        ${repositorio.homepage ? `<a href="${repositorio.homepage}" target="_blank" class="botao-outline botao-sm">Deploy</a>`
-                        : ""}
-                    </div>`
+                <div class="project-buttons">
+                    <a href="${repositorio.html_url}" target="_blank" class="botao botao-sm">
+                        GitHub
+                    </a>
+                    ${botaoDeploy}
+                </div>`
 
             // Construir o Card
             swiperWrapper.innerHTML += `
@@ -143,7 +182,7 @@ async function getProjectsGitHub() {
 
                         <!-- Ícone da Tecnologia padrão do projeto -->
                         <figure class="project-image">
-                            <img src="${urlIcone}" alt="Icone ${linguagem}">
+                            <img src="${urlIcone}" alt="Icone - ${linguagem} - Linguagem principal do projeto">
                         </figure>
 
                         <!-- Conteúdo do Projeto -->
@@ -170,54 +209,59 @@ async function getProjectsGitHub() {
 }
 
 function iniciarSwiper() {
-    new Swiper('.projects-swiper', {
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        spaceBetween: 24,
-        centeredSlides: false,
-        loop: true,
-        watchOverflow: true,
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                slidesPerGroup: 1,
-                spaceBetween: 40,
-                centeredSlides: false
-            },
-            769: { 
-                slidesPerView: 2,
-                slidesPerGroup: 2,
-                spaceBetween: 40,
-                centeredSlides: false
-            },
-            1025: { 
-                slidesPerView: 3,
-                slidesPerGroup: 3, 
-                spaceBetween: 54,
-                centeredSlides: false
-            }
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            dynamicBullets: true,
-        },
-        autoplay: {
-            delay: 5000,
-            pauseOnMouseEnter: true,
-            disableOnInteraction: false,
-        },
-        grabCursor: true, 
-        slidesOffsetBefore: 0, 
-        slidesOffsetAfter: 0, 
-    });
+	new Swiper('.projects-swiper', {
+		slidesPerView: 1,
+		slidesPerGroup: 1,
+		spaceBetween: 24,
+		centeredSlides: false,
+		loop: true,
+		watchOverflow: true,
+
+		breakpoints: {
+			0: {
+				slidesPerView: 1,
+				slidesPerGroup: 1,
+				spaceBetween: 40,
+				centeredSlides: false,
+			},
+			769: {
+				slidesPerView: 2,
+				slidesPerGroup: 2,
+				spaceBetween: 40,
+				centeredSlides: false,
+			},
+			1025: {
+				slidesPerView: 3,
+				slidesPerGroup: 3,
+				spaceBetween: 54,
+				centeredSlides: false,
+			},
+		},
+
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+			dynamicBullets: true,
+		},
+
+		autoplay: {
+			delay: 5000,
+			pauseOnMouseEnter: true,
+			disableOnInteraction: false,
+		},
+
+		grabCursor: true,
+		slidesOffsetBefore: 0,
+		slidesOffsetAfter: 0,
+	})
 }
 
-formulario.addEventListener("submit", function(event) {
+formulario.addEventListener("submit", function (event) {
 
     // Não deixa enviar o formulario sem fazer a validação de dados antes
     event.preventDefault()
@@ -232,7 +276,7 @@ formulario.addEventListener("submit", function(event) {
 
     if (nome.value.trim().length < 3) {
         erroNome.innerHTML = "O nome deve ter no mínimo 3 caracteres"
-        
+
         if (isValid) nome.focus()
         isValid = false
     }
@@ -240,9 +284,9 @@ formulario.addEventListener("submit", function(event) {
     const email = document.querySelector("#email")
     const erroEmail = document.querySelector("#erro-email")
 
-    if (!email.value.trim().math(emailRegex)) {
+    if (!email.value.trim().match(emailRegex)) {
         erroEmail.innerHTML = "Digite um endereço de e-mail válido"
-        
+
         if (isValid) email.focus()
         isValid = false
     }
@@ -252,7 +296,7 @@ formulario.addEventListener("submit", function(event) {
 
     if (assunto.value.trim().length < 5) {
         erroAssunto.innerHTML = "O assunto deve ter no mínimo 5 caracteres"
-        
+
         if (isValid) assunto.focus()
         isValid = false
     }
@@ -262,7 +306,7 @@ formulario.addEventListener("submit", function(event) {
 
     if (mensagem.value.trim().length === 0) {
         erroMensagem.innerHTML = "A mensagem não pode ser vazia"
-        
+
         if (isValid) mensagem.focus()
         isValid = false
     }

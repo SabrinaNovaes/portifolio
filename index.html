@@ -30,9 +30,10 @@
     <header>
         <div class="menu-content">
             <!-- Título do Cabeçalho -->
-            
-            <a href="index.html" id="titulo"><img class="logo-pessoal" href="index" id src="./assets/img/logoSN.png" alt="Logo Pessoal"></a>
 
+            <a href="index.html" id="titulo">
+                <img class="logo-pessoal" src="./assets/img/logoSN.png" alt="Logo Pessoal">
+            </a>
             <!-- Menu de Navegação -->
             <nav>
                 <ul class="menu-list">
@@ -73,7 +74,66 @@
         </section>
 
         <!-- Seção de Stacks -->
-        <h2>Minhas Stacks</h2>
+        <section id="stack" class="section-container stack-container">
+
+            <!-- Stacks Container -->
+            <article class="stack-content">
+                <h2>💻 Minhas Stacks</h2>
+                <p>Essas são as tecnologias que utilizo para criar projetos incríveis!</p>
+
+                <div class="stack-icons">
+                    <div class="stack-group">
+                        <span class="stack-icons-title">🧠 Linguagens</span>
+                        <div class="row-icons">
+                            <img src="./assets/icons/languages/html.svg" alt="Ícone HTML">
+                            <img src="./assets/icons/languages/css.svg" alt="Ícone CSS">
+                            <img src="./assets/icons/languages/javascript.svg" alt="Ícone JavaScript">
+                            <img src="./assets/icons/languages/typescript.svg" alt="Ícone TypeScript">
+                            <img src="./assets/icons/languages/java.svg" alt="Ícone Java">
+                        </div>
+                    </div>
+
+                    <div class="stack-group">
+                        <span class="stack-icons-title">🎨 Front-end</span>
+                        <div class="row-icons">
+                            <img src="./assets/icons/stack/reactjs.svg" alt="Ícone React">
+                            <img src="./assets/icons/stack/bootstrap.svg" alt="Ícone Bootstrap">
+                            <img src="./assets/icons/stack/tailwind-css.svg" alt="Ícone Tailwind CSS">
+                        </div>
+                    </div>
+
+                    <div class="stack-group">
+                        <span class="stack-icons-title">⚙️ Back-end</span>
+                        <div class="row-icons">
+                            <img src="./assets/icons/stack/nodejs.svg" alt="Ícone Node.js">
+                            <img src="./assets/icons/stack/express.svg" alt="Ícone Express">
+                            <img src="./assets/icons/stack/spring.svg" alt="Ícone Spring Boot">
+                            <img src="./assets/icons/stack/nest.svg" alt="Ícone NestJs">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stack1-icons">
+                    <div class="stack-group">
+                        <span class="stack-icons-title">🗄️ Banco de Dados</span>
+                        <div class="row-icons">
+                            <img src="./assets/icons/stack/mysql.png" alt="Ícone MySQL">
+                            <img src="./assets/icons/stack/postgres.png" alt="Ícone PostgreSQL">
+                        </div>
+                    </div>
+
+                    <div class="stack-group">
+                        <span class="stack-icons-title">🛠️ Ferramentas</span>
+                        <div class="row-icons">
+                            <img src="./assets/icons/stack/git.svg" alt="Ícone Git">
+                            <img src="./assets/icons/languages/github.svg" alt="Ícone GitHub">
+                            <img src="./assets/icons/stack/insomnia.svg" alt="Ícone Insomnia">
+                            <img src="./assets/icons/stack/getpostman-icon.svg" alt="Ícone Postman">
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
 
         <!-- Seção Projects -->
         <section id="projects" class="section-container projects-container">
@@ -102,7 +162,8 @@
                 <p>Sinta-se à Vontade para entrar em contato comigo!</p>
 
                 <div class="social-container">
-                    <a href="https://www.linkedin.com/in/sabrina-novaes/" target="_blank" class="social-icon" aria-label="Linkedin">
+                    <a href="https://www.linkedin.com/in/sabrina-novaes/" target="_blank" class="social-icon"
+                        aria-label="Linkedin">
                         <img src="./assets/icons/social/linkedin.svg" alt="Link para o LinkedIn">
                     </a>
                     <a href="https://github.com/SabrinaNovaes" target="_blank" class="social-icon" aria-label="Github">
@@ -114,10 +175,10 @@
 
             <!-- Formulário de Contato -->
             <form id="formulario" action="https://formsubmit.co/fcd660d6e3b7301830b1e21f8e73cf5c" method="POST">
-                
+
                 <input type="hidden" name="_next" value="https://sabrinanovaes.github.io/portifolio/success.html">
                 <input type="hidden" name="_captcha" value="false">
-                
+
                 <label for="nome">Nome</label>
                 <input id="nome" name="nome" type="text" placeholder="Digite o seu nome">
                 <span id="erro-nome"></span>
@@ -145,11 +206,11 @@
         <a class="footer-a" href="index.html">⬆ Voltar para o Início</a>
     </footer>
 
-    <!-- Script JavaScript -->
-    <script src="./assets/js/script.js"></script>
     <!-- SWIPER JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <!-- Script JavaScript -->
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
