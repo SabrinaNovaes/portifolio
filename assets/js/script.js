@@ -32,10 +32,18 @@ async function getAboutHitHub() {
             <!-- Conteúdo da Seção About -->
             <article class="about-content">
                 <h2>Sobre Mim</h2>
-                <p>Mussum Ipsum, cacilds vidis litro abertis. Casamentiss faiz malandris se pirulitá. Nullam volutpat
-                    risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. Posuere libero varius.
-                    Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Segunda-feiris nun dá, eu vô me
-                    pirulitá!</p>
+                <p>Oi! Eu sou a Sabrina 👋 <br>
+                    <br> Sou desenvolvedora Full Stack em início de carreira e sou movida por desafios, 
+                    aprendizado constante e aquela vontade real de fazer as coisas funcionarem de verdade.
+                    <br> Gosto de colocar a mão no código, entender o porquê das coisas e construir soluções organizadas,
+                    bem estruturadas e que façam sentido pra quem usa. <br>
+                    <br> Tenho experiência com JavaScript (Node.js), Java (Spring Boot) e React, e estou sempre evoluindo. 
+                    Atualmente, estou aprofundando meus estudos em TypeScript. <br> 
+                    <br> Venho de uma trajetória com bastante contato com pessoas, o que hoje faz toda diferença, penso não só no código, 
+                    mas na experiência de quem está do outro lado. <br> 
+                    Sou organizada, proativa, gosto de trabalhar em equipe e estou em busca da minha primeira oportunidade como desenvolvedora júnior, pronta para crescer, 
+                    contribuir com o time encarando novos desafios!
+                </p>
 
                 <!-- Links (Github e Curriculo) e Dados do Github -->
                 <div class="about-buttons-data">
@@ -43,7 +51,7 @@ async function getAboutHitHub() {
                     <!-- Links -->
                     <div class="buttons-container">
                         <a href="${perfil.html_url}" target="_blank" class="botao">Github</a>
-                        <a href="#" target="_blank" class="botao-outline">Currículo</a>
+                        <a href="https://drive.google.com/file/d/1UL-0gvgFuc5H3N4tecpPEUEvaSG2oQ__/view?usp=sharing" target="_blank" class="botao-outline">Currículo</a>
                     </div>
 
                     <!-- Dados -->

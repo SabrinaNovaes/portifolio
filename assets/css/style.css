@@ -15,8 +15,8 @@
     /* Paleta de Cores - Purple */
     --blue-50: #fff8de;
     --blue-100: #e9dcfa;
-    /* --blue-200: #cdb3f0;
-    --blue-300: #b186e5; */
+    --blue-200: #bcd7f5;
+    --blue-300: #7b94e6; 
     --blue-400: #6091db;
     --blue-500: #9abbf8;
     --blue-600: #67a9e7;
@@ -97,9 +97,24 @@ main {
     margin: 3rem auto;
     padding: var(--spacing-xl) var(--spacing-md);
     scroll-margin-top: 6rem;
+    background-color: var(--gray-200);
+}
+
+.about-container,
+.projects-container {
     background-color: var(--blue-50);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+
+    /* transição suave */
+    transition: all 0.3s ease;
+}
+
+/* efeito ao passar o mouse */
+.about-container:hover,
+.projects-container:hover {
     box-shadow: var(--shadow-lg);
+    transform: scale(1.02);
 }
 
 /* Botões */
@@ -249,7 +264,8 @@ header a:hover {
 
 .hero-content p,
 .about-content p,
-.contact-info p {
+.contact-info p,
+.stack-content p {
     font-size: var(--text-xl);
     color: var(--gray-400);
 }
@@ -291,9 +307,6 @@ header a:hover {
     align-items: center;
     gap: var(--spacing-2xl);
     margin: var(--spacing-2xl) auto;
-    border-radius: var(--radius-lg);
-    background-color: var(--gray-200);
-    box-shadow: none;
 }
 
 .about-image {
@@ -319,6 +332,7 @@ header a:hover {
 
 .about-content p {
     margin-bottom: var(--spacing-sm);
+    font-size: var(--text-md);
     text-align: justify;
 }
 
@@ -364,16 +378,6 @@ header a:hover {
 .stack-content {
     text-align: center;
 }
-
-/* .stack-icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-} */
 
 .stack-icons {
     display: grid;
@@ -561,8 +565,6 @@ header a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-2xl);
-    background-color: var(--gray-200);
-    box-shadow: none;
 }
 
 /* Redes Sociais */
@@ -652,11 +654,22 @@ form .button.botao {
 /* Footer */
 
 footer {
-    padding: 1.5rem;
+    padding: 1rem;
     background: linear-gradient(to right, var(--blue-500), var(--blue-800));
     font-weight: 600;
     text-align: center;
     color: var(--white);
+}
+
+.footer-icon {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.footer-icon img {
+    width: 1.5rem;
+    filter: opacity(55%) saturate(45%);
 }
 
 .footer-a {
@@ -703,13 +716,13 @@ footer {
     width: 7.5rem;
     height: 7.5rem;
     border-radius: var(--radius-full);
-    background-color: var(--blue-100);
+    background-color: var(--blue-200);
 }
 
 .success-icon img {
     width: 6rem;
     height: 6rem;
-    filter: brightness(0) saturate(100%) invert(11%) sepia(69%) saturate(3759%) hue-rotate(256deg) brightness(101%) contrast(96%);
+    filter: brightness(0) saturate(100%) invert(11%) sepia(69%) saturate(3750%) hue-rotate(240deg) brightness(101%) contrast(96%);
 }
 
 /* Responsividade - Tablets */
