@@ -1,3 +1,13 @@
+// Menu Hamburguer - Fechar ao clicar em um link
+const menuToggle = document.getElementById("menu-toggle");
+const menuLinks = document.querySelectorAll(".nav-menu a");
+
+menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        menuToggle.checked = false;
+    });
+});
+
 // Seção About
 const about = document.querySelector("#about");
 
@@ -32,17 +42,57 @@ async function getAboutHitHub() {
             <!-- Conteúdo da Seção About -->
             <article class="about-content">
                 <h2>Sobre Mim</h2>
-                <p>Oi! Eu sou a Sabrina 👋 <br>
-                    <br> Sou desenvolvedora Full Stack em início de carreira e sou movida por desafios, 
-                    aprendizado constante e aquela vontade real de fazer as coisas funcionarem de verdade.
-                    <br> Gosto de colocar a mão no código, entender o porquê das coisas e construir soluções organizadas,
-                    bem estruturadas e que façam sentido pra quem usa. <br>
-                    <br> Tenho experiência com JavaScript (Node.js), Java (Spring Boot) e React, e estou sempre evoluindo. 
-                    Atualmente, estou aprofundando meus estudos em TypeScript. <br> 
-                    <br> Venho de uma trajetória com bastante contato com pessoas, o que hoje faz toda diferença, penso não só no código, 
-                    mas na experiência de quem está do outro lado. <br> 
-                    Sou organizada, proativa, gosto de trabalhar em equipe e estou em busca da minha primeira oportunidade como desenvolvedora júnior, pronta para crescer, 
-                    contribuir com o time encarando novos desafios!
+                <p>Oi! Eu sou a 
+                    <span class="destaque-about">Sabrina</span> ✨
+
+                <br><br>
+
+                    Sou desenvolvedora 
+                    <span class="destaque-about">Full Stack</span>, 
+                    apaixonada por tecnologia, aprendizado constante e por transformar ideias em soluções funcionais e bem estruturadas.
+
+                <br><br>
+
+                    Tenho experiência no desenvolvimento de aplicações utilizando 
+                    <span class="destaque-about">JavaScript</span>, 
+                    <span class="destaque-about">Node.js</span>, 
+                    <span class="destaque-about">Java</span>, 
+                    <span class="destaque-about">Spring Boot</span>,
+                    <span class="destaque-about">React</span>, 
+                    <span class="destaque-about">HTML</span> e
+                    <span class="destaque-about">CSS</span>
+                    além de estar aprofundando meus conhecimentos em 
+                    <span class="destaque-about">TypeScript</span> 
+                    e desenvolvimento moderno para aplicações web.
+
+                <br><br>
+
+                    Também possuo conhecimentos em 
+                    <span class="destaque-about">bancos de dados relacionais</span>, 
+                    trabalhando com 
+                    <span class="destaque-about">MySQL</span> 
+                    e 
+                    <span class="destaque-about">PostgreSQL</span>, 
+                    buscando sempre desenvolver sistemas organizados, escaláveis e eficientes.
+
+                <br><br>
+
+                    Gosto de entender o funcionamento das soluções além do código, pensando tanto na estrutura da aplicação quanto na experiência de quem está utilizando.
+
+                <br><br>
+
+                    Minha trajetória profissional me proporcionou bastante contato com pessoas, o que fortaleceu habilidades como 
+                    <span class="destaque-about">comunicação</span>, 
+                    <span class="destaque-about">organização</span>, 
+                    <span class="destaque-about">proatividade</span> 
+                    e 
+                    <span class="destaque-about">trabalho em equipe</span>.
+
+                <br><br>
+
+                    Atualmente, estou em busca da minha primeira oportunidade como 
+                    <span class="destaque-about">Desenvolvedora Júnior</span>, 
+                    pronta para evoluir profissionalmente, contribuir com o time e encarar novos desafios!
                 </p>
 
                 <!-- Links (Github e Curriculo) e Dados do Github -->
@@ -116,7 +166,7 @@ async function getProjectsGitHub() {
             const icone = linguagens[linguagem] ?? linguagens["GitHub"];
 
             // Monta a url que aponta para o ícone da Linguagem padrão
-            const urlIcone = `./assets/icons/languages/${icone}.svg`;
+            const urlIcone = `./assets/icons/stack/${icone}.svg`;
 
             // Formatar o nome do Repositorio
             const nomeFormatado = repositorio.name
