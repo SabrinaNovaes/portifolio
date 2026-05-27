@@ -25,10 +25,9 @@
     /* Paleta de cores - rosa */
     --pink-100: #ffe8ef;
     --pink-200: #ffd3e0;
-    --pink-300: #f6b3b7; /* ← era --pink-600 com valor claro, renomeado para 300 */
+    --pink-300: #f6b3b7;
     --pink-400: #f5a3be;
     --pink-500: #eb89ab;
-    /* --pink-600 removido — era idêntico ao --accent-pink e ao novo --pink-300 */
 
     /* Cores Neutras */
     --cream: #fffaf5;
@@ -84,6 +83,149 @@
     --transition-default: all 0.3s ease;
 }
 
+.leaves {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.leaf {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-green);
+    border-radius: 0 100% 0 100%;
+    opacity: 0.6;
+    animation: falling linear infinite;
+}
+
+/* POSIÇÕES */
+
+.leaf:nth-child(1)  { left: 5%;  animation-duration: 13s; animation-delay: 0s; }
+.leaf:nth-child(2)  { left: 12%; animation-duration: 16s; animation-delay: 2s; }
+.leaf:nth-child(3)  { left: 18%; animation-duration: 11s; animation-delay: 1s; }
+.leaf:nth-child(4)  { left: 24%; animation-duration: 18s; animation-delay: 3s; }
+.leaf:nth-child(5)  { left: 30%; animation-duration: 15s; animation-delay: 5s; }
+.leaf:nth-child(6)  { left: 38%; animation-duration: 14s; animation-delay: 2s; }
+.leaf:nth-child(7)  { left: 45%; animation-duration: 20s; animation-delay: 4s; }
+.leaf:nth-child(8)  { left: 52%; animation-duration: 12s; animation-delay: 1s; }
+.leaf:nth-child(9)  { left: 58%; animation-duration: 17s; animation-delay: 6s; }
+.leaf:nth-child(10) { left: 65%; animation-duration: 13s; animation-delay: 2s; }
+.leaf:nth-child(11) { left: 72%; animation-duration: 19s; animation-delay: 4s; }
+.leaf:nth-child(12) { left: 78%; animation-duration: 15s; animation-delay: 1s; }
+.leaf:nth-child(13) { left: 84%; animation-duration: 11s; animation-delay: 3s; }
+.leaf:nth-child(14) { left: 90%; animation-duration: 16s; animation-delay: 5s; }
+.leaf:nth-child(15) { left: 96%; animation-duration: 14s; animation-delay: 2s; }
+
+@keyframes falling {
+
+    0% {
+        transform:
+        translateY(-10vh)
+        translateX(0)
+        rotate(0deg)
+        scale(1);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.55;
+    }
+
+    50% {
+        transform:
+        translateY(50vh)
+        translateX(40px)
+        rotate(180deg)
+        scale(0.9);
+    }
+
+    100% {
+        transform:
+        translateY(110vh)
+        translateX(120px)
+        rotate(360deg)
+        scale(0.7);
+
+        opacity: 0;
+    }
+}
+
+.magic-cursor {
+    position: fixed;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(246,179,183,0.95),
+        rgba(246,179,183,0.3),
+        transparent
+    );
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    mix-blend-mode: screen;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+    0 0 12px rgba(246,179,183,0.8),
+    0 0 24px rgba(255,210,220,0.5);
+
+    transition:
+    transform 0.08s linear;
+}
+
+/* ESTRELINHAS */
+
+.spark {
+    position: fixed;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    pointer-events: none;
+
+    z-index: 9998;
+
+    opacity: 0.8;
+
+    animation: sparkleFade 0.8s forwards;
+}
+
+@keyframes sparkleFade {
+
+    0% {
+        transform:
+        scale(1)
+        translateY(0);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+        scale(0)
+        translateY(-12px);
+
+        opacity: 0;
+    }
+}
+
 /* Configurações Básicas */
 
 html {
@@ -108,10 +250,11 @@ main {
 
 .section-container {
     max-width: 70rem;
-    margin: auto;
-    padding: var(--spacing-xl) var(--spacing-md);
+    margin: 0 auto var(--spacing-2xl) auto;
+    padding: var(--spacing-md) var(--spacing-md);
     scroll-margin-top: 6rem;
     width: 100%;
+    gap: var(--spacing-md);
 }
 
 .about-container {
@@ -163,6 +306,7 @@ main {
     background-color: var(--accent-peach);
     box-shadow: var(--shadow-md);
     transform: translateY(-0.25rem);
+    cursor: none;
 }
 
 .botao-outline {
@@ -174,6 +318,7 @@ main {
 .botao-outline:hover {
     border-color: var(--accent-peach);
     transform: translateY(-0.25rem);
+    cursor: none;
 }
 
 /* Botões pequenos - Card Projetos */
@@ -278,7 +423,7 @@ header a:hover {
 .hero-content h3 {
     font-size: var(--text-2xl);
     font-weight: 600;
-    color: var(--primary-800);
+    color: var(--primary-600);
     margin-bottom: -1.2rem;
 }
 
@@ -319,7 +464,7 @@ header a:hover {
 .faixa {
     display: flex;
     background-color: var(--accent-pink);  /* ← era --pink-600 */
-    color: #5a2c2c;
+    color: var(--primary-800);
     padding: 0.30rem;
     border: 0.10rem solid var(--black);
     border-radius: var(--radius-xl);
@@ -652,14 +797,14 @@ header a:hover {
 
 .social-icon img:hover {
     filter:
-        brightness(0)
-        saturate(100%)
-        invert(67%)
-        sepia(32%)
-        saturate(1050%)
-        hue-rotate(340deg)
-        brightness(92%)
-        contrast(95%);
+    brightness(0)
+    saturate(100%)
+    invert(84%)
+    sepia(18%)
+    saturate(950%)
+    hue-rotate(305deg)
+    brightness(101%)
+    contrast(95%);
 }
 
 /* Formulário de Contato */
@@ -727,7 +872,7 @@ form .botao {                  /* ← era form .button.botao — seletor errado 
 footer {
     padding: 0.45rem var(--spacing-md);
     text-align: center;
-    background: var(--accent-pink);
+    background: var(--cream);
     font-weight: 600;
     color: var(--primary-800);
     border: 0.15rem solid var(--black);
@@ -985,6 +1130,11 @@ footer {
 
 @media screen and (max-width: 768px) {   /* ← era media aninhada dentro do 1024px (inválido) */
     .menu-list {
+        display: none;
+    }
+
+    .magic-cursor,
+    .spark {
         display: none;
     }
 
