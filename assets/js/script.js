@@ -47,8 +47,8 @@ async function getAboutHitHub() {
 
                 <br><br>
 
-                    Sou desenvolvedora 
-                    <span class="destaque-about">Full Stack</span>, 
+                    Sou estudante de 
+                    <span class="destaque-about">Análise e Desenvolvimento de Sistemas</span>, 
                     apaixonada por tecnologia, aprendizado constante e por transformar ideias em soluções funcionais e bem estruturadas.
 
                 <br><br>
@@ -90,8 +90,8 @@ async function getAboutHitHub() {
 
                 <br><br>
 
-                    Atualmente, estou em busca da minha primeira oportunidade como 
-                    <span class="destaque-about">Desenvolvedora Júnior</span>, 
+                    Atualmente, estou em busca de oportunidades como:  
+                    <span class="destaque-about">estagiária, auxiliar, trainee ou desenvolvedora júnior</span>, 
                     pronta para evoluir profissionalmente, contribuir com o time e encarar novos desafios!
                 </p>
 
@@ -101,7 +101,7 @@ async function getAboutHitHub() {
                     <!-- Links -->
                     <div class="buttons-container">
                         <a href="${perfil.html_url}" target="_blank" class="botao">Github</a>
-                        <a href="https://docs.google.com/document/d/1KEGAoDk7siPprNAOvpoItlaSgdqrRVNmzES_Qj7saoA/edit?usp=sharing" target="_blank" class="botao-outline">Currículo</a>
+                        <a href="https://drive.google.com/file/d/1JmxXI6MTCLiSlXLEMdLETMKY_55aAswF/view?usp=sharing" target="_blank" class="botao-outline">Currículo</a>
                     </div>
 
                     <!-- Dados -->
